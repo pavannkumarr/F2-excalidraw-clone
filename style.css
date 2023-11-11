@@ -1,0 +1,322 @@
+@font-face {
+    font-family: "Virgil";
+    src: url("fonts/FG_Virgil.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Cascadia";
+    src: url("fonts/CascadiaCode-Regular-VTT.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Virgill";
+    src: url("fonts/Virgil\ GS\ Regular.ttf");
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+#canvas {
+    position: relative;
+    background-color: rgb(255, 255, 255);
+}
+
+.header {
+    position: absolute;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    top: 10px;
+    padding: 10px;
+}
+
+.hamburger {
+    border-radius: 10px;
+    border: 1px solid #d8d8d8;
+    padding: 8px 10px;
+    background-color: #ececec;
+}
+
+
+.hamburger:hover {
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.hamburger:active {
+    border: 1px solid black;
+}
+
+.icons-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding: 5px;
+    margin-left: 100px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 10px 5px 20px rgba(136, 134, 134, 0.3);
+}
+
+.icons-bar>.middle-icons {
+    position: relative;
+    display: inline-block;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0 5px;
+    overflow: hidden;
+}
+
+
+.icons-bar>.middle-icons>span {
+    position: absolute;
+    bottom: 3px;
+    right: 5px;
+    color: #bebebe;
+    font-size: 10px;
+    font-family: "Cascadia";
+    font-weight: bolder;
+}
+
+.vertical-line {
+    height: 30px;
+    border-left: 2px solid #dad9d9;
+    margin: 0 5px;
+}
+
+.icons-bar>.middle-icons:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.icons-bar>.middle-icons:active {
+    background-color: #e1dffe;
+    cursor: pointer;
+}
+
+.active {
+    background-color: #e1dffe;
+}
+
+#colorpick {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #ffffff;
+    width: 25px;
+    height: 25px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#colorpick::-webkit-color-swatch {
+    border-radius: 51%;
+    ;
+    border: none;
+}
+
+#colorpick::-moz-color-swatch {
+    border-radius: 51%;
+    border: none;
+}
+
+.end-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.live-colab {
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #6965db;
+}
+
+.live-colab:hover {
+    background-color: #5c59b8;
+    cursor: pointer;
+}
+
+.library {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    border: 1px solid rgb(223, 222, 222);
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+    margin-left: 15px;
+}
+
+.library>p {
+    font-size: small;
+    color: #727272;
+    margin-left: 5px;
+}
+
+.end-btn>button:hover {
+    background-color: #e1dffe;
+    cursor: pointer;
+}
+
+.single-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 90px;
+}
+
+.single-line>p {
+    text-align: center;
+    color: #bebebe;
+}
+
+.single-line>p:hover {
+    cursor: default;
+}
+
+.single-line>p:active {
+    visibility: hidden;
+    cursor: default;
+    text-align: center;
+}
+
+.single-line>p:active::before {
+    content: "Hold Ctrl to deep select, and to prevent dragging";
+    cursor: default;
+    visibility: visible;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto !important;
+}
+
+
+#bottom {
+    position: fixed;
+    z-index: 100;
+    left: 20px;
+    bottom: 20px;
+}
+
+#bottom>.option {
+    background-color: #e8e8e8;
+    padding: 4px 10px;
+    border-radius: 10px;
+}
+
+#bottom>.option>button {
+    font-size: 15px;
+    border: none;
+    margin: 5px;
+    background-color: transparent;
+}
+
+#bottom>.option>button:active {
+    background-color: #bab9b9;
+    
+}
+#bottom>.option>button:hover {
+    cursor: pointer;
+}
+
+
+
+
+/* Media queries for responsiveness */
+
+/* For smaller screens (phones) */
+@media only screen and (max-width: 600px) {
+    .header {
+        padding: 5px;
+    }
+
+    .hamburger {
+        padding: 6px 8px;
+    }
+
+    .icons-bar {
+        margin-left: 30px;
+        flex-wrap: wrap;
+        font-size: smaller;
+    }
+
+    .icons-bar>.middle-icons {
+        padding: 10px;
+        margin: auto;
+    }
+
+    .vertical-line,
+    .end-btn,
+    .single-line,
+    .icons-bar>.m {
+        display: none;
+    }
+}
+
+/* For medium screens (tablets) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .header {
+        padding: 10px;
+    }
+
+    .hamburger {
+        padding: 7px 10px;
+    }
+
+    .icons-bar {
+        margin-left: 50px;
+        flex-wrap: nowrap;
+    }
+
+    .single-line {
+        top: 80px;
+    }
+
+    /* Add specific styles for medium screens */
+    /* Modify or add styles that need to change for medium screens */
+}
+
+/* For larger screens (desktops) */
+@media only screen and (min-width: 1025px) {
+    .header {
+        padding: 15px;
+    }
+
+    .hamburger {
+        padding: 8px 12px;
+    }
+
+    .icons-bar {
+        margin-left: 100px;
+        flex-wrap: nowrap;
+    }
+
+    .single-line {
+        top: 90px;
+    }
+
+    /* Add specific styles for larger screens */
+    /* Modify or add styles that need to change for larger screens */
+}
